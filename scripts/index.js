@@ -17,12 +17,3 @@ function displayRecipes() {
 
 displayRecipes();
 
-// Tag
-createBoxTags();
-
-// Binary Search
-
-binarySearch();
-
-// filter tag with input search
-filterTagsbyInputTag();
