@@ -1,28 +1,15 @@
 import { recipes } from "../recipes.js";
-import recipeFactory from "../scripts/recipesDisplay.js";
+import RecipeDisplay from "./recipesDisplay.js";
+import createListElements from "./listDisplay.js";
+import tagDisplay from "./tagDisplay.js";
+import filterTagsbyInputTag from "./searchItem.js";
+import globalSearch from "./search.js";
 
-
-// Recipes
-function displayRecipes() {
-  const recipesContainer = document.getElementById("recipes");
-  recipesContainer.innerHTML = "";
-
-  let recipeCardTemplate = "";
-  for (const recipe of recipes) {
-    const recipeModel = new recipeFactory(recipe, recipeCardTemplate);
-    recipeCardTemplate = recipeModel.createCardRecipe();
-  }
-  recipesContainer.innerHTML = recipeCardTemplate;
+function buildDom() {
+  RecipeDisplay.createCardRecipe(recipes);
+  createListElements();
+  tagDisplay.createBoxTags();
+  filterTagsbyInputTag();
 }
 
-displayRecipes();
-
-// Tag
-createBoxTags();
-
-// Binary Search
-
-binarySearch();
-
-// filter tag with input search
-filterTagsbyInputTag();
+buildDom();

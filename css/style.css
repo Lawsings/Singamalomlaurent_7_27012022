@@ -83,6 +83,9 @@ input ::placeholder {
   margin: 0.4em;
   padding: 0.6em;
   border-radius: 5px;
+  margin-top: 1em;
+  position: relative;
+  top: 0.8em;
 }
 
 .tag-ingredient {
@@ -168,7 +171,7 @@ input ::placeholder {
   padding-bottom: 0.4em;
 }
 
-ul {
+nav ul {
   margin-block-end: 0em;
   margin-block-start: 0em;
   padding-inline-start: 0em;
@@ -177,7 +180,7 @@ ul {
   display: grid;
 }
 
-li {
+nav li {
   list-style: none;
   font-size: 1.2em;
   font-weight: 500;
@@ -185,7 +188,7 @@ li {
   padding-left: 0.8em;
 }
 
-li:hover {
+nav li:hover {
   transform: scale(1.1);
   color: rgba(255, 255, 255, 0.74);
   padding-left: 1.4em;
@@ -248,20 +251,6 @@ li:hover {
   transition: all 0.4s;
 }
 
-.fa-chevron-down:hover {
-  animation: chevronRotate 2s backwards;
-  transform: rotate(180deg);
-}
-
-@keyframes chevronRotate {
-  from {
-    transform: rotate(180deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-
 .hide {
   display: none;
 }
@@ -274,6 +263,11 @@ li:hover {
   flex-wrap: wrap;
   align-content: space-between;
   flex-direction: row;
+}
+
+nav button {
+  border: none;
+  color: white;
 }
 
 #box-ingredients {
@@ -335,13 +329,14 @@ main {
   justify-content: space-between;
   flex-wrap: wrap;
   transition: all 0.5s;
-  position: fixed;
   z-index: -99999;
+  margin-right: 1em;
 }
 
 .article-recipes {
   min-width: 270px;
-  width: 30%;
+  width: 360px;
+  max-width: 360px;
   height: 364px;
   background: #c7bebe;
   border-radius: 3px;
@@ -355,13 +350,16 @@ main {
 }
 
 .card {
+  max-width: 360px;
   padding-left: 1.4em;
   padding-right: 1.4em;
+  cursor: default;
 }
 
 .plate {
   width: 100%;
   min-width: 270px;
+  max-width: 360px;
   height: 180px;
   border-radius: 3px;
   transition: all 0.5s;
@@ -371,11 +369,13 @@ main {
   display: flex;
   justify-content: space-between;
   font-size: 1em;
+  align-items: baseline;
 }
 
 .name-recipe {
   font-size: 1.2em;
   max-width: 75%;
+  margin-bottom: 1.1em;
 }
 
 .time {
@@ -404,6 +404,7 @@ main {
   display: flex;
   justify-content: space-between;
   font-size: 0.85em;
+  margin-top: -1.1em;
 }
 
 .recipe-ingredients {
@@ -412,6 +413,17 @@ main {
   overflow: hidden;
   max-width: 165px;
   max-height: 120px;
+  font-size: 1em;
+}
+
+main ul {
+  padding-left: 0em;
+}
+main li {
+  list-style: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 426px) {

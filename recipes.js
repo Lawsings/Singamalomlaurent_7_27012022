@@ -25,6 +25,7 @@ export const recipes = [
       },
       {
         ingredient: "Glaçons",
+        quantity: 20,
       },
     ],
     time: 10,
@@ -1370,8 +1371,7 @@ export const recipes = [
       },
     ],
     time: 20,
-    description:
-      "Fouettez les oeufs, le sucre et le lait. tremper les tranches de pain. Le cuire au four pendant environ 10 minutes à 180°. Servir",
+    description: "Fouettez les oeufs, le sucre et le lait. tremper les tranches de pain. Le cuire au four pendant environ 10 minutes à 180°. Servir",
     appliance: "Four",
     ustensils: ["fouet", "bol", "Cuillère à Soupe"],
   },
@@ -1733,8 +1733,7 @@ export const recipes = [
       },
     ],
     time: 0,
-    description:
-      "Découper les fruits. Le passer au blender jusqu'à obtenir une texture liquide. Mettre au frais. Servir",
+    description: "Découper les fruits. Le passer au blender jusqu'à obtenir une texture liquide. Mettre au frais. Servir",
     appliance: "Blender",
     ustensils: ["couteau", "verres"],
   },
@@ -1770,7 +1769,7 @@ export const recipes = [
     ],
     time: 60,
     description:
-      "Préparer la frangipane : Mélanger le sucre la poudre d'amander, le beurre et les oeufs. Etaler la moitier de la pate feuilleté et mettre dans un moule à tarte. Garnir de frangipane et recouvrir du reste de pate feuilletée. Mettre au four 30 minutes",
+      "Préparer la frangipane : Mélanger le sucre la poudre d'amande, le beurre et les oeufs. Etaler la moitier de la pate feuilleté et mettre dans un moule à tarte. Garnir de frangipane et recouvrir du reste de pate feuilletée. Mettre au four 30 minutes",
     appliance: "Four",
     ustensils: ["rouleau à patisserie", "fouet"],
   },
