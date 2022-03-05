@@ -98,6 +98,8 @@ input {
   border-width: 0;
   border-top-left-radius: 0%;
   border-top-right-radius: 0%;
+  top: -2px!important;
+}
 }
 
 .dropdown-item {
