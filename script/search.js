@@ -21,37 +21,50 @@ const manageSearchInput = (evt) => {
   completeSearch();
 };
 
-////////////////////////////////  Algo V1
+//////////////////////// Algo V2
 // Rechercher les recettes à partir du champ de recherche
-
+let canIDisplayAllRecipes = false;
 const searchByInput = () => {
   const value = state.currentSearch;
   state.displayedRecipes = [];
 
   if (value.length > 2) {
-    let t0 = performance.now();
-    return data.recipes.forEach((recipe) => {
-      const recipeToDisplay = document.getElementById(recipe.id);
-      const normaliezedText = normalizeText(value);
-      if (
-        normalizeText(recipe.name).includes(normaliezedText) ||
-        normalizeText(recipe.description).includes(normaliezedText) ||
-        getIngredientsStringFromRecipe(recipe).includes(normaliezedText)
-      ) {
+    const recipes = data.recipes;
+    const j = recipes.length;
+    const normaliezedValue = normalizeText(value);
+
+    canIDisplayAllRecipes = true;
+
+    for (let i = 0; i < j; i++) {
+      const recipeToDisplay = document.getElementById(recipes[i].id);
+
+      if (normalizeText(recipes[i].name).includes(normaliezedValue)) {
         recipeToDisplay.style.display = "block";
-        let t1 = performance.now();
-        state.displayedRecipes.push(recipe.id);
-        return console.log(t1 - t0 + " milliseconds");
+        state.displayedRecipes.push(recipes[i].id);
+      } else if (normalizeText(recipes[i].description).includes(normaliezedValue)) {
+        recipeToDisplay.style.display = "block";
+        state.displayedRecipes.push(recipes[i].id);
+      } else if (getIngredientsStringFromRecipe(recipes[i]).includes(normaliezedValue)) {
+        recipeToDisplay.style.display = "block";
+        state.displayedRecipes.push(recipes[i].id);
+      } else {
+        recipeToDisplay.style.display = "none";
       }
-      return (recipeToDisplay.style.display = "none"); //
-    });
+    }
+  } else {
+    if (canIDisplayAllRecipes) {
+      const recipes = data.recipes;
+      const j = recipes.length;
+
+      for (let i = 0; i < j; i++) {
+        const recipeToDisplay = document.getElementById(recipes[i].id);
+        recipeToDisplay.style.display = "block";
+      }
+      canIDisplayAllRecipes = false;
+    }
   }
-  return data.recipes.forEach((recipe) => {
-    const recipeToDisplay = document.getElementById(recipe.id);
-    recipeToDisplay.style.display = "block";
-  });
 };
-////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
 
 // rechercher les recettes depuis les filtres
 const searchByTag = () => {
